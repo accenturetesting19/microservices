@@ -20,10 +20,10 @@ jobs:
      #   run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
 
       - name: Raise PR 1
-        id: test-2
+        id: test-1
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: "Develop1"
+          branch: "Develop"
           base: master
           title: "Demo for auto pr1"
         #  committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
@@ -34,7 +34,7 @@ jobs:
           delete-branch: true
       - name: Pull request number
         run: |
-          echo "Pull Request Number - ${{ steps.test-2.outputs.pull-request-number }}"
+          echo "Pull Request Number - ${{ steps.test-1.outputs.pull-request-number }}"
       #- name: Merge request     
        # uses: davideviolante/pr-automerge-action@v1.3.3
        # env:
