@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - dev
 
 jobs:
   AutomaticPR:
@@ -23,7 +24,7 @@ jobs:
         id: test-1
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: "Dev"
+          branch: "Develop1"
           base: master
           title: "Demo for auto pr1"
           committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
