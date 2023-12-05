@@ -31,7 +31,7 @@ jobs:
           body:
             This is to show automatic PR creation
           token: ${{ secrets.GITHUB_TOKEN }}
-          delete-branch: true
+          #delete-branch: true
       - name: Pull request number
         run: |
           echo "Pull Request Number - ${{ steps.test-1.outputs.pull-request-number }}"
