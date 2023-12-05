@@ -1,0 +1,32 @@
+name: Automatic PR
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  AutomaticPR:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out code
+        uses: actions/checkout@v2
+
+      - name: extract git commit data
+        uses: rlespinasse/git-commit-data-action@v1.x
+
+
+      - name: Raise PR 1
+        id: test-1
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: Dev
+          base: main
+          title: "demo for auto pr1"
+          body:
+            This is to show automatic PR creation
+          token: ${{ secrets.GITHUB_TOKEN }}
+          delete-branch: true
+      - name: Pull request number
+        run: |
+          echo "Pull Request Number - ${{ steps.test-1.outputs.pull-request-number }}"
