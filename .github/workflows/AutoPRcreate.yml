@@ -1,9 +1,10 @@
 name: Automatic PR
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+  #push:
+  # branches:
+  #- master
       
 jobs:
   AutomaticPR:
@@ -18,16 +19,16 @@ jobs:
 
 
       - name: Raise PR 1
-        id: test-1
+        id: PR1
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: Dev
+          branch: "develop"
           base: master
-          title: "demo for auto pr1"
+          title: "Demo for auto pr1"
           body:
             This is to show automatic PR creation
           token: ${{ secrets.GITHUB_TOKEN }}
           #delete-branch: true
       - name: Pull request number
         run: |
-          echo "Pull Request Number - ${{ steps.test-1.outputs.pull-request-number }}"
+          echo "Pull Request Number - ${{ steps.PR1.outputs.pull-request-number }}"
