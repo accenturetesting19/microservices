@@ -8,10 +8,7 @@ on:
 jobs:
   AutomaticPR:
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      contents: read
-      security-events: write
+
     steps:
       - name: checking out code
         uses: actions/checkout@v2
@@ -25,7 +22,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: Dev
-          base: main
+          base: master
           title: "demo for auto pr1"
           body:
             This is to show automatic PR creation
