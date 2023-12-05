@@ -9,7 +9,7 @@ jobs:
   AutomaticPR:
     runs-on: ubuntu-latest
     permissions:
-      actions: write|read
+      actions: write
       contents: read
       security-events: write
     steps:
