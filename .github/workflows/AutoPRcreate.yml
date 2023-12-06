@@ -27,11 +27,16 @@ jobs:
         with:
           branch: "branchcreate"
           #base: master
-          title: "Demo for auto pr1"
+          title: "Automatic Pull request creation"
         #  committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
         #  author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           body:
             This is to show automatic PR creation
+            - Updated with *today's* date
+          #labels: |
+           # automerge
+          assignees: accenturetesting19
+          reviewers: accenturetesting19
           token: ${{ secrets.GITHUB_TOKEN }}
           #delete-branch: true
       - name: Pull request number
