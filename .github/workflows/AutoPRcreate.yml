@@ -39,8 +39,7 @@ jobs:
           body:
             This is to show automatic PR creation
             - Updated with *today's* date
-          #labels: |
-           # automerge
+          labels: automerge
           assignees: accenturetesting19
           reviewers: accenturetesting19
           token: ${{ secrets.GITHUB_TOKEN }}
