@@ -12,6 +12,12 @@ jobs:
     steps:
       - name: checking out code
         uses: actions/checkout@v4
+        with:
+          ref: master
+      - name : Reset branch   
+        run: |
+          git fetch origin master:master
+          git reset --hard master
 
       - name: extract git commit data
         uses: rlespinasse/git-commit-data-action@v1.x
@@ -24,7 +30,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           branch: "branchcreate"
-          base: master
+          #base: master
           title: "Demo for auto pr1"
         #  committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
         #  author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
