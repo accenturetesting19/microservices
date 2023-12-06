@@ -19,7 +19,7 @@ jobs:
           echo date > current-date.txt
           git add current-date.txt
           git commit --message "Some changes"
-          git push origin dev
+          git push origin master
 
       - name: extract git commit data
         uses: rlespinasse/git-commit-data-action@v1.x
