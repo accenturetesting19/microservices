@@ -13,8 +13,8 @@ jobs:
       - name: checking out code
         uses: actions/checkout@v4
       - run: |
-          git config user.email accenturetesting19@github.com
-          git config user.name "accenturetesting19"
+          git config user.email noreply@github.com
+          git config user.name "Github actions"
           git checkout -b dev/${{ github.sha }}
           echo date > current-date.txt
           git add current-date.txt
@@ -31,7 +31,7 @@ jobs:
         id: test1
         uses: peter-evans/create-pull-request@v5
         with:
-          branch: "branchcreate1"
+          branch: "branchcreate"
           #base: master
           title: "Automatic Pull request creation"
         #  committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
