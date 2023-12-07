@@ -15,11 +15,11 @@ jobs:
       - run: |
           git config user.email noreply@github.com
           git config user.name "Github actions"
-          git checkout -b developbranch
+          git checkout -b dev/${{ github.sha }}
           echo date > current-date.txt
           git add current-date.txt
           git commit --message "Some changes"
-          git push origin developbranch
+          git push origin dev/${{ github.sha }}
 
     #  - name: extract git commit data
     #    uses: rlespinasse/git-commit-data-action@v1.x
