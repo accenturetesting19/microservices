@@ -12,10 +12,17 @@ jobs:
     steps:
       - name: checking out code
         uses: actions/checkout@v4
+      - run: |
+          git config user.email noreply@github.com
+          git config user.name "Github actions"
+          git checkout -b developbranch
+          echo date > current-date.txt
+          git add current-date.txt
+          git commit --message "Some changes"
+          git push origin developbranch
 
-
-      - name: extract git commit data
-        uses: rlespinasse/git-commit-data-action@v1.x
+    #  - name: extract git commit data
+    #    uses: rlespinasse/git-commit-data-action@v1.x
 
       - name: Update author information
         run: echo ${{ env.GIT_COMMIT_AUTHOR_NAME }} > AUTHOR
